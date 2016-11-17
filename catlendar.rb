@@ -1,7 +1,13 @@
+ #!/usr/bin/env ruby
 require 'prawn'
 require 'date'
 
-date_today = Date.today
+puts "How many days from now on you want to print?"
+days = STDIN.gets.strip
+puts "Thank you. The PDF will be generated in a second."
+
+start_date = Date.today
+end_date = start_date + days.to_i
 
 Prawn::Document.generate("hello.pdf") do
 
@@ -13,7 +19,7 @@ Prawn::Document.generate("hello.pdf") do
   end
 
   column_box([0, cursor],:columns => 2, :width => bounds.width) do
-    date_today.upto(Date.new(2017, 4, 3)) do |date|
+    start_date.upto end_date do |date|
       text date.strftime(("%a %e.%m.%y"))
       pad_bottom(5) { stroke_horizontal_rule }
     end
