@@ -12,7 +12,7 @@ start_date = Date.today
 end_date = start_date + days.to_i
 columns = columns.to_i
 
-Prawn::Document.generate("hello.pdf") do
+Prawn::Document.generate("catlendar.pdf") do
 
   FULL_COLUMN_WIDTH = 264
   FIRST_COLUMN_LINE =  80
